@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BBBBB - BLUBRAINBITBASEBIN - CERTIFIED HOOD CLASSIC 🗑️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- CAUTION TAPE - TOP -->
+    <div class="caution-tape top">
+        <div class="caution-scroll">
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+        </div>
+    </div>
+
+    <!-- CAUTION TAPE - BOTTOM -->
+    <div class="caution-tape bottom">
+        <div class="caution-scroll reverse">
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+            <span>⚠️ 100% CREATOR FEES → INSTANT BUYBACK & BURN → SHRINKING TO 21MILL → NEW BITCOIN ⚠️</span>
+        </div>
+    </div>
+
+    <!-- CAUTION TAPE - LEFT -->
+    <div class="caution-tape left">
+        <div class="caution-scroll-vertical">
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+        </div>
+    </div>
+
+    <!-- CAUTION TAPE - RIGHT -->
+    <div class="caution-tape right">
+        <div class="caution-scroll-vertical reverse">
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+            <span>⚠️ BUYBACK & BURN ⚠️</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION - TOP OF PAGE -->
+    <section class="hero-section">
+        <h1 class="main-title glitch" data-text="$BBBBB">
+            <span>$</span><span>B</span><span>B</span><span>B</span><span>B</span><span>B</span>
+        </h1>
+        
+        <p class="subtitle">BLUBRAINBITBASEBIN</p>
+
+        <!-- 3D SPINNING BIN -->
+        <div class="bin-3d">
+            <div class="bin-face front">🗑️</div>
+            <div class="bin-face back">♻️</div>
+            <div class="bin-face left">💰</div>
+            <div class="bin-face right">🚀</div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="hero-buttons">
+            <button class="mega-btn buy-btn" onclick="buyToken()">
+                <span class="btn-icon">🦍</span>
+                <span class="btn-text">APE IN</span>
+                <span class="btn-sub">(become one with bin)</span>
+            </button>
+            <button class="mega-btn chart-btn" onclick="viewChart()">
+                <span class="btn-icon">📊</span>
+                <span class="btn-text">CHART</span>
+                <span class="btn-sub">(it only goes up)</span>
+            </button>
+            <button class="mega-btn chaos-btn" onclick="maxChaos()">
+                <span class="btn-icon">☢️</span>
+                <span class="btn-text">NUCLEAR</span>
+                <span class="btn-sub">(ur funeral)</span>
+            </button>
+        </div>
+
+        <!-- CA -->
+        <div class="ca-box">
+            <div class="ca-label">📋 CONTRACT ADDRESS (COPY OR STAY POOR)</div>
+            <div class="ca-value" id="caValue">BBBBB69420BrainrotOhioSkibidi...BBBBB</div>
+            <button class="copy-btn" onclick="copyCA()">📋 SACRIFICE CLICKS TO COPY</button>
+        </div>
+    </section>
+
+    <!-- FALLING FALLING BACKGROUND -->
+    <canvas id="fallingCanvas"></canvas>
+
+    <!-- FAKE VIRUS WARNING -->
+    <div class="virus-warning" id="virusWarn">
+        <div class="virus-header">
+            <span>⚠️ SYSTEM ALERT ⚠️</span>
+            <button onclick="this.parentElement.parentElement.style.display='none'">X</button>
+        </div>
+        <div class="virus-body">
+            <p class="virus-icon">☠️</p>
+            <p><b>WARNING:</b> Your brain has been infected with $BBBBB</p>
+            <p>Symptoms include: buying more, telling friends, becoming based</p>
+            <p class="blink">THERE IS NO CURE</p>
+            <button class="virus-btn" onclick="this.parentElement.parentElement.style.display='none'">ACCEPT FATE</button>
+        </div>
+    </div>
+
+    <!-- SKIBIDI TOILET -->
+    <div class="skibidi" id="skibidi">
+        <div class="skibidi-body">🚽</div>
+        <div class="skibidi-bubble" id="skibidiBubble">
+            <p>skibidi dop dop dop yes yes</p>
+            <p>buy $BBBBB or get flushed</p>
+            <button onclick="skibidiRespond()">SKIBIDI YES</button>
+            <button onclick="skibidiRespond()">DOP DOP DOP</button>
+        </div>
+    </div>
+
+    <!-- CHAOS MARQUEES -->
+    <div class="marquee-hell">
+        <marquee behavior="alternate" scrollamount="15" class="marquee-1">🗑️ BUY $BBBBB 🗑️ NOT FINANCIAL ADVICE 🗑️ DYOR 🗑️ WAGMI 🗑️ TOUCH GRASS 🗑️</marquee>
+        <marquee direction="right" scrollamount="10" class="marquee-2">⚠️ BRAINROT DETECTED ⚠️ AURA LEAKING ⚠️ RIZZ LEVELS CRITICAL ⚠️ SIGMA OVERLOAD ⚠️</marquee>
+        <marquee behavior="alternate" scrollamount="20" class="marquee-3">🚀 MOON SOON 🚀 TRUST THE BIN 🚀 RECYCLE UR L's 🚀 BECOME THE BIN 🚀</marquee>
+    </div>
+
+
+    <!-- MAIN CHAOS CONTENT -->
+    <main class="main-chaos">
+
+        <!-- HOSTILE TOKENOMICS -->
+        <section class="chaos-section tokenomics-hell">
+            <h2 class="cursed-title">
+                <span class="shake">📊</span>
+                <span class="zalgo">B̷̛I̸N̷O̶M̸I̶C̷S̸</span>
+                <span class="shake">📊</span>
+            </h2>
+            
+            <div class="hostile-grid">
+                <div class="hostile-card" onclick="cardExplode(this)">
+                    <div class="card-glitch"></div>
+                    <div class="card-emoji spin">💰</div>
+                    <h3 class="distort">5 BILLION</h3>
+                    <p>Total Supply</p>
+                    <span class="card-warning">⚠️ (click = aura loss)</span>
+                </div>
+                <div class="hostile-card" onclick="cardExplode(this)">
+                    <div class="card-glitch"></div>
+                    <div class="card-emoji wobble">🔥</div>
+                    <h3 class="distort">0% TAX</h3>
+                    <p>Buy/Sell</p>
+                    <span class="card-warning">⚠️ (we lied its 100% love)</span>
+                </div>
+                <div class="hostile-card" onclick="cardExplode(this)">
+                    <div class="card-glitch"></div>
+                    <div class="card-emoji pulse">🔒</div>
+                    <h3 class="distort">BURNT</h3>
+                    <p>LP Tokens</p>
+                    <span class="card-warning">⚠️ (like ur portfolio)</span>
+                </div>
+                <div class="hostile-card" onclick="cardExplode(this)">
+                    <div class="card-glitch"></div>
+                    <div class="card-emoji spin-reverse">✅</div>
+                    <h3 class="distort">RENOUNCED</h3>
+                    <p>Contract</p>
+                    <span class="card-warning">⚠️ (trust me bro)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURSED LORE -->
+        <section class="chaos-section lore-hell">
+            <div class="lore-container">
+                <div class="lore-static"></div>
+                <h2 class="lore-title-cursed">
+                    <span>📜</span>
+                    <span class="typewriter" id="loreTitle">THE SACRED TEXTS</span>
+                    <span>📜</span>
+                </h2>
+                
+                <div class="lore-scroll-cursed">
+                    <p class="lore-line fade-in">In the beginning, there was only chaos...</p>
+                    <p class="lore-line fade-in">then the bin appeared from the v̷̧ǒ̶i̵d̴</p>
+                    <p class="lore-line fade-in">it whispered: <span class="creepy">"recycle ur L's"</span></p>
+                    <p class="lore-line fade-in">and so it was done</p>
+                    <p class="lore-line fade-in big">$BBBBB was born</p>
+                    <p class="lore-line fade-in">the prophecy states:</p>
+                    <p class="lore-line fade-in quote blink">"HE WHO HOLDS THE BIN SHALL NEVER BE MID"</p>
+                    <p class="lore-line fade-in small">(source: trust me bro)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOSTILE ROADMAP -->
+        <section class="chaos-section roadmap-hell">
+            <h2 class="cursed-title">
+                🗺️ ROADMAP <span class="tiny">(TRUST)</span>
+            </h2>
+            
+            <div class="roadmap-chaos">
+                <div class="road-node done">
+                    <div class="node-number">01</div>
+                    <div class="node-content">
+                        <h3>CREATE BIN</h3>
+                        <p>✅ DONE (ez)</p>
+                    </div>
+                    <div class="node-line"></div>
+                </div>
+                <div class="road-node done">
+                    <div class="node-number">02</div>
+                    <div class="node-content">
+                        <h3>LAUNCH</h3>
+                        <p>✅ DONE (lmao)</p>
+                    </div>
+                    <div class="node-line"></div>
+                </div>
+                <div class="road-node current">
+                    <div class="node-number blink">03</div>
+                    <div class="node-content shake">
+                        <h3>MAKE IT</h3>
+                        <p>🔄 IN PROGRESS...</p>
+                        <span class="progress-lie">99.9% complete (lie)</span>
+                    </div>
+                    <div class="node-line"></div>
+                </div>
+                <div class="road-node future">
+                    <div class="node-number">04</div>
+                    <div class="node-content">
+                        <h3>VALHALLA</h3>
+                        <p>🌙 SOON™</p>
+                        <span class="soon-counter" id="soonCounter">ETA: NaN days</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOSTILE COMMUNITY -->
+        <section class="chaos-section community-hell">
+            <h2 class="cursed-title shake">
+                🫂 JOIN THE <span class="rainbow-text">CULT</span> 🫂
+            </h2>
+            <p class="community-warning">⚠️ warning: may cause excessive shilling ⚠️</p>
+            
+            <div class="social-chaos">
+                <a href="#" class="chaos-social tg" onclick="socialClick(event, 'tg')">
+                    <div class="social-static"></div>
+                    <span class="social-emoji">📱</span>
+                    <span class="social-name">TELEGRAM</span>
+                    <span class="social-desc">screaming into the void</span>
+                    <span class="member-count">69,420 degenerates</span>
+                </a>
+                <a href="#" class="chaos-social tw" onclick="socialClick(event, 'tw')">
+                    <div class="social-static"></div>
+                    <span class="social-emoji">🐦</span>
+                    <span class="social-name">TWITTER</span>
+                    <span class="social-desc">ratio central</span>
+                    <span class="member-count">∞ followers (trust)</span>
+                </a>
+            </div>
+
+            <div class="cult-oath">
+                <p>BY SCROLLING PAST THIS POINT YOU AGREE TO:</p>
+                <ul>
+                    <li>✓ Never sell</li>
+                    <li>✓ Shill to family</li>
+                    <li>✓ Become the bin</li>
+                    <li>✓ Touch grass (optional)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FAKE REVIEWS -->
+        <section class="chaos-section reviews-hell">
+            <h2 class="cursed-title">📣 TESTIMONIALS <span class="tiny">(100% real)</span></h2>
+            
+            <div class="reviews-carousel">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-pic">🤡</span>
+                        <span class="reviewer-name">definitely_not_dev</span>
+                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"bought $BBBBB, immediately grew 6 inches taller and my dad came back"</p>
+                    <span class="review-verify">✅ VERIFIED PURCHASE</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-pic">💀</span>
+                        <span class="reviewer-name">copium_dealer_42</span>
+                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"the bin spoke to me in my dreams. it said 'buy more'. i obeyed."</p>
+                    <span class="review-verify">✅ VERIFIED SCHIZO</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-pic">🦍</span>
+                        <span class="reviewer-name">ape_together_strong</span>
+                        <span class="review-stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"my wife's boyfriend is impressed with my investment"</p>
+                    <span class="review-verify">✅ VERIFIED CUCK</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CHAOS FOOTER -->
+    <footer class="footer-hell">
+        <div class="footer-chaos-content">
+            <div class="footer-ascii-art">
+<pre class="rainbow-text">
+   ___  ___  ___  ___  ___ 
+  | _ )| _ )| _ )| _ )| _ )
+  | _ \| _ \| _ \| _ \| _ \
+  |___/|___/|___/|___/|___/
+</pre>
+            </div>
+            
+            <div class="footer-warnings">
+                <p>⚠️ NOT FINANCIAL ADVICE ⚠️</p>
+                <p>⚠️ DYOR ⚠️ NFA ⚠️ WAGMI ⚠️</p>
+                <p class="blink">⚠️ THE BIN IS ALWAYS WATCHING ⚠️</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">📜 whitepaper (its blank)</a>
+                <a href="#">🗺️ roadmap (we made it up)</a>
+                <a href="#">👥 team (anon)</a>
+            </div>
+
+            <p class="copyright">© 2026 $BBBBB | made with brainrot and zero sleep | touch grass</p>
+        </div>
+
+    </footer>
+
+    <!-- CURSOR FOLLOWER -->
+    <div class="cursor-follower" id="cursor">🗑️</div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- POPUP CONTAINER -->
+    <div id="popupContainer"></div>
+
+    <!-- 3D STICKER POPUP -->
+    <div class="sticker-popup" id="stickerPopup">
+        <div class="sticker-content">
+            <div class="sticker-emoji" id="stickerEmoji">🗑️</div>
+            <div class="sticker-title" id="stickerTitle">TITLE</div>
+            <div class="sticker-text" id="stickerText">Message here</div>
+            <button class="sticker-btn" onclick="closeStickerPopup()">GOT IT</button>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
