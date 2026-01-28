@@ -1321,11 +1321,191 @@ body {
         0 0 50px rgba(0, 255, 255, 0.4);
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE - TABLET */
 @media (max-width: 768px) {
     .skibidi, .virus-warning { display: none; }
     .cursed-title { font-size: 40px; }
     .hostile-grid { grid-template-columns: 1fr; }
     .social-chaos { flex-direction: column; align-items: center; }
     .psychedelic-orbs, .trippy-rings { display: none; }
+
+    /* Reduce caution tape */
+    .caution-tape.top, .caution-tape.bottom { height: 25px; }
+    .caution-tape.left, .caution-tape.right { width: 20px; }
+    .caution-tape.left, .caution-tape.right { display: none; }
+
+    /* Hero adjustments */
+    .hero-section { padding: 40px 25px 60px 25px; }
+    .main-title { letter-spacing: 6px; }
+    .subtitle { font-size: 20px; letter-spacing: 4px; }
+
+    /* Buttons */
+    .mega-btn { padding: 15px 25px; }
+    .btn-icon { font-size: 24px; }
+    .btn-text { font-size: 14px; }
+
+    /* CA Box */
+    .ca-box { padding: 20px; margin: 30px 15px; }
+    .ca-value { font-size: 14px; }
+
+    /* Main content */
+    .main-chaos { padding: 15px 25px; }
+    .chaos-section { margin: 60px 0; }
+
+    /* Lore */
+    .lore-title-cursed { font-size: 36px; }
+    .lore-line { font-size: 18px; }
+    .lore-line.big { font-size: 32px; }
+    .lore-line.quote { font-size: 20px; }
+
+    /* Roadmap */
+    .road-node { gap: 20px; padding: 20px 0; }
+    .node-number { width: 50px; height: 50px; font-size: 14px; }
+    .node-content h3 { font-size: 20px; }
+
+    /* Reviews */
+    .reviews-carousel { grid-template-columns: 1fr; }
+    .review-card { transform: none !important; }
+
+    /* Footer */
+    .footer-hell { padding: 15px 25px 35px 25px; }
+    .footer-ascii-art pre { font-size: 10px; }
+    .footer-links { gap: 15px; }
+    .footer-links a { font-size: 12px; }
+}
+
+/* RESPONSIVE - MOBILE */
+@media (max-width: 480px) {
+    /* Show default cursor on touch devices */
+    body { cursor: auto; }
+    .cursor-follower { display: none; }
+    .sticker-content { cursor: auto; }
+
+    /* Hide side caution tapes, shrink top/bottom */
+    .caution-tape.left, .caution-tape.right { display: none; }
+    .caution-tape.top, .caution-tape.bottom { height: 20px; }
+    .caution-scroll span { font-size: 8px; padding: 0 15px; }
+
+    /* Hero section */
+    .hero-section { padding: 30px 15px 50px 15px; }
+    .main-title { letter-spacing: 4px; margin-bottom: 10px; }
+    .subtitle { font-size: 16px; letter-spacing: 3px; margin-bottom: 20px; }
+
+    /* Hero video - scale down */
+    .hero-video-container {
+        width: 240px;
+        height: 280px;
+        margin: 25px auto;
+    }
+
+    /* Buttons - stack vertically */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        padding: 0 10px;
+    }
+    .mega-btn {
+        padding: 15px 30px;
+        width: 100%;
+        max-width: 280px;
+    }
+    .btn-icon { font-size: 22px; }
+    .btn-text { font-size: 12px; }
+    .btn-sub { font-size: 7px; }
+
+    /* CA Box */
+    .ca-box {
+        padding: 15px;
+        margin: 25px 10px;
+        border-width: 3px;
+    }
+    .ca-label { font-size: 11px; }
+    .ca-value { font-size: 11px; padding: 10px; }
+    .copy-btn { padding: 12px 20px; font-size: 12px; }
+
+    /* Main content */
+    .main-chaos { padding: 10px 15px; }
+    .chaos-section { margin: 40px 0; }
+
+    /* Titles */
+    .cursed-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .cursed-title .tiny { font-size: 0.4em; }
+
+    /* Hostile cards */
+    .hostile-card {
+        padding: 25px 20px;
+        transform: none !important;
+    }
+    .hostile-card:hover { transform: scale(1.02) !important; }
+    .card-emoji { font-size: 45px; margin-bottom: 15px; }
+    .hostile-card h3 { font-size: 22px; }
+    .card-warning { font-size: 10px; }
+
+    /* Lore */
+    .lore-hell { padding: 50px 15px; }
+    .lore-title-cursed { font-size: 28px; margin-bottom: 30px; }
+    .lore-line { font-size: 16px; margin: 18px 0; }
+    .lore-line.big { font-size: 26px; }
+    .lore-line.quote { font-size: 18px; }
+    .lore-line.small { font-size: 12px; }
+
+    /* Roadmap */
+    .roadmap-hell { padding: 50px 15px; }
+    .road-node { gap: 15px; padding: 15px 0; }
+    .node-number { width: 45px; height: 45px; font-size: 12px; }
+    .node-line { left: 22px; top: 75px; }
+    .node-content h3 { font-size: 18px; }
+    .node-content p { font-size: 14px; }
+    .progress-lie, .soon-counter { font-size: 10px; }
+
+    /* Community */
+    .community-hell { padding: 50px 15px; }
+    .community-warning { font-size: 12px; }
+    .chaos-social { padding: 30px 40px; }
+    .social-emoji { font-size: 40px; }
+    .social-name { font-size: 20px; }
+    .social-desc { font-size: 12px; }
+    .member-count { font-size: 10px; }
+
+    /* Cult oath */
+    .cult-oath { padding: 20px 15px; }
+    .cult-oath p { font-size: 12px; }
+    .cult-oath li { font-size: 14px; }
+
+    /* Reviews */
+    .reviews-hell { padding: 50px 15px; }
+    .review-card { padding: 20px; }
+    .reviewer-pic { font-size: 30px; }
+    .reviewer-name { font-size: 14px; }
+    .review-text { font-size: 15px; }
+    .review-verify { font-size: 10px; }
+
+    /* Footer */
+    .footer-hell { padding: 10px 15px 30px 15px; }
+    .footer-chaos-content { padding: 30px 10px; }
+    .footer-ascii-art pre { font-size: 8px; }
+    .footer-warnings p { font-size: 12px; }
+    .footer-links { flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 12px; }
+    .copyright { font-size: 10px; }
+
+    /* Marquees */
+    .marquee-1 { font-size: 14px; }
+    .marquee-2 { font-size: 12px; }
+    .marquee-3 { font-size: 16px; }
+
+    /* Sticker popup */
+    .sticker-content {
+        padding: 30px 25px;
+        margin: 15px;
+        max-width: calc(100vw - 30px);
+    }
+    .sticker-emoji { font-size: 60px; }
+    .sticker-title { font-size: 24px; }
+    .sticker-text { font-size: 14px; }
+    .sticker-btn { padding: 12px 30px; font-size: 11px; }
 }
