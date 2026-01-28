@@ -84,39 +84,8 @@ function animateFalling() {
 
 animateFalling();
 
-// ========== CURSOR ==========
-const cursor = document.getElementById('cursor');
-const cursorEmojis = ['🗑️', '🧠', '💀', '🚀', '💎', '🦍', '📈', '🔥', '👁️', '🤡', '☠️', '🚽'];
-
-document.addEventListener('mousemove', (e) => {
-    if (cursor) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    }
-    
-    // Occasional cursor trail
-    if (Math.random() > 0.85) {
-        spawnCursorTrail(e.clientX, e.clientY);
-    }
-});
-
-function spawnCursorTrail(x, y) {
-    const trail = document.createElement('div');
-    trail.textContent = cursorEmojis[Math.floor(Math.random() * cursorEmojis.length)];
-    const hue = Math.random() * 360;
-    trail.style.cssText = `
-        position: fixed;
-        left: ${x}px;
-        top: ${y}px;
-        font-size: ${15 + Math.random() * 20}px;
-        pointer-events: none;
-        z-index: 99999;
-        animation: trailFade 1.5s forwards;
-        filter: drop-shadow(0 0 10px hsl(${hue}, 100%, 50%)) hue-rotate(${hue}deg);
-    `;
-    document.body.appendChild(trail);
-    setTimeout(() => trail.remove(), 1500);
-}
+// ========== CURSOR - DISABLED FOR PERFORMANCE ==========
+// Custom cursor and trail removed to improve performance
 
 // SMOOTH COLOR PULSE
 function psychedelicPulse() {
@@ -155,12 +124,8 @@ trailStyle.textContent = `
 `;
 document.head.appendChild(trailStyle);
 
-// Random cursor emoji
-setInterval(() => {
-    if (cursor) {
-        cursor.textContent = cursorEmojis[Math.floor(Math.random() * cursorEmojis.length)];
-    }
-}, 1000);
+// Random cursor emoji - DISABLED
+// Removed for performance
 
 
 // ========== 3D STICKER POPUP ==========
@@ -300,6 +265,83 @@ function cardExplode(card) {
         card.style.animation = '';
     }, 500);
 }
+
+// ========== BUYBACK STATS ==========
+let buybackStats = {
+    totalSolUsed: 0,
+    totalBurned: 0,
+    burnCount: 0,
+    lastBurnAmount: 0
+};
+
+// Try to connect to buyback bot WebSocket
+function connectBuybackBot() {
+    try {
+        // Change this URL to your deployed bot URL
+        const botUrl = 'ws://localhost:3001';
+        const ws = new WebSocket(botUrl);
+
+        ws.onopen = () => {
+            console.log('🔥 Connected to buyback bot');
+        };
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.type === 'init' || data.type === 'stats') {
+                const stats = data.stats || data;
+                buybackStats = stats;
+                updateBuybackDisplay();
+            }
+        };
+
+        ws.onclose = () => {
+            console.log('Buyback bot disconnected, retrying in 5s...');
+            setTimeout(connectBuybackBot, 5000);
+        };
+
+        ws.onerror = () => {
+            // Silent fail - will retry on close
+        };
+    } catch (e) {
+        console.log('Buyback bot not available');
+    }
+}
+
+function updateBuybackDisplay() {
+    const solEl = document.getElementById('solClaimedCount');
+    const burntEl = document.getElementById('supplyBurntCount');
+
+    if (solEl) solEl.textContent = buybackStats.totalSolUsed?.toFixed(2) || '0.00';
+    if (burntEl) burntEl.textContent = formatNumber(buybackStats.totalBurned || 0);
+}
+
+function formatNumber(num) {
+    if (num >= 1e9) return (num / 1e9).toFixed(2) + 'B';
+    if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
+    if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
+    return num.toLocaleString();
+}
+
+function showSolClaimed() {
+    showStickerPopup('💰', 'SOL CLAIMED',
+        `<span style="color: #00ffff; font-size: 24px;">${buybackStats.totalSolUsed?.toFixed(4) || '0.0000'} SOL</span><br><br>` +
+        `100% of creator fees claimed<br>` +
+        `and used to buyback $BBBBB<br><br>` +
+        `<span style="color: #888;">Total burns: ${buybackStats.burnCount || 0}</span>`
+    );
+}
+
+function showSupplyBurnt() {
+    showStickerPopup('🔥', 'SUPPLY BURNT',
+        `<span style="color: #ff6400; font-size: 24px;">${formatNumber(buybackStats.totalBurned || 0)}</span><br><br>` +
+        `$BBBBB tokens burned forever<br>` +
+        `Reducing supply to 21M<br><br>` +
+        `<span style="color: #00ff00;">Last burn: ${formatNumber(buybackStats.lastBurnAmount || 0)}</span>`
+    );
+}
+
+// Connect on page load
+setTimeout(connectBuybackBot, 1000);
 
 // ========== SKIBIDI TOILET ==========
 function skibidiRespond() {
