@@ -500,5 +500,101 @@ window.chaos = function() {
     return '🗑️ CHAOS DEPLOYED 🗑️';
 };
 
+// ========== CHROMA KEY - REMOVE WHITE BACKGROUND ==========
+function initChromaKey() {
+    const binVideo = document.getElementById('binVideo');
+    const binCanvas = document.getElementById('binCanvas');
+
+    if (!binVideo || !binCanvas) return;
+
+    const ctx = binCanvas.getContext('2d', { willReadFrequently: true });
+
+    // Crop settings - adjust these to focus on the bin
+    // Values are percentages (0-1) of how much to crop from each side
+    const cropLeft = 0.32;   // Crop 32% from left
+    const cropRight = 0.32;  // Crop 32% from right
+    const cropTop = 0.03;    // Crop 3% from top
+    const cropBottom = 0.03; // Crop 3% from bottom
+
+    function startProcessing() {
+        const videoWidth = binVideo.videoWidth || 400;
+        const videoHeight = binVideo.videoHeight || 400;
+
+        // Calculate crop dimensions from source video
+        const sx = videoWidth * cropLeft;
+        const sy = videoHeight * cropTop;
+        const sWidth = videoWidth * (1 - cropLeft - cropRight);
+        const sHeight = videoHeight * (1 - cropTop - cropBottom);
+
+        // Set canvas to cropped size
+        binCanvas.width = sWidth;
+        binCanvas.height = sHeight;
+
+        console.log('Bin video cropped:', sWidth, 'x', sHeight, '(from', videoWidth, 'x', videoHeight, ')');
+        processFrame(sx, sy, sWidth, sHeight);
+    }
+
+    function processFrame(sx, sy, sWidth, sHeight) {
+        // Draw CROPPED video frame to canvas
+        // drawImage(source, srcX, srcY, srcW, srcH, destX, destY, destW, destH)
+        ctx.drawImage(binVideo, sx, sy, sWidth, sHeight, 0, 0, binCanvas.width, binCanvas.height);
+
+        // Get pixel data
+        try {
+            const imageData = ctx.getImageData(0, 0, binCanvas.width, binCanvas.height);
+            const data = imageData.data;
+
+            // Loop through pixels and make white/light gray transparent
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i];
+                const g = data[i + 1];
+                const b = data[i + 2];
+
+                // Calculate brightness
+                const brightness = (r + g + b) / 3;
+
+                // Check if pixel is grayish (not blue enough)
+                const isGray = Math.abs(r - g) < 30 && Math.abs(g - b) < 30 && Math.abs(r - b) < 30;
+
+                // Remove white, gray, and light pixels
+                if (brightness > 120 && isGray) {
+                    data[i + 3] = 0; // Make transparent
+                }
+                // Also catch shadows/darker grays
+                else if (brightness > 100 && isGray) {
+                    data[i + 3] = 0;
+                }
+            }
+
+            // Put modified pixels back
+            ctx.putImageData(imageData, 0, 0);
+        } catch (e) {
+            // CORS error - just draw without chroma key
+            console.log('Chroma key error:', e);
+        }
+
+        requestAnimationFrame(() => processFrame(sx, sy, sWidth, sHeight));
+    }
+
+    // Try multiple events to catch when video is ready
+    binVideo.addEventListener('loadeddata', startProcessing);
+    binVideo.addEventListener('canplay', startProcessing);
+
+    // If video already loaded, start now
+    if (binVideo.readyState >= 2) {
+        startProcessing();
+    }
+
+    // Force play
+    binVideo.play().catch(e => console.log('Autoplay blocked:', e));
+}
+
+// Run after DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChromaKey);
+} else {
+    initChromaKey();
+}
+
 // ========== INIT ==========
 console.log('%c BRAINROT INITIALIZED 🗑️', 'color: #0f0; font-size: 20px;');
