@@ -332,9 +332,9 @@ function socialClick(e, type) {
     
     const popups = {
         tg: {
-            emoji: '📱',
-            title: 'TELEGRAM',
-            text: 'Join <span style="color: #00ffff">69,420</span> degenerates<br>screaming into the void.<br><br><span style="color: #888">(placeholder link)</span>'
+            emoji: '🚫',
+            title: 'NO TELEGRAM',
+            text: 'TG is for <span style="color: #ff0000">LOSERS</span><br><br>Real ones communicate through<br><span style="color: #00ffff">✨ onchain vibes ✨</span><br><br>The bin speaks to us directly.<br><span style="color: #888">(in price action)</span>'
         },
         tw: {
             emoji: '🐦',
